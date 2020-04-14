@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
     <h1>Welcome to the Meeting Planner!</h1>
     <p>
         This is the demo application for the course
@@ -12,15 +10,15 @@
         on <a href="https://www.pluralsight.com">
         Pluralsight</a>.
     </p>
-        <h2>Meetings</h2>
+    <h2>Meetings</h2>
     <ul>
         {% for meeting in meetings %}
             <li>
-                <a href="{% url 'detail' meeting.id %}">
+                <a href="{% url 'detail_page' meeting.id %}">
                     {{ meeting.title }}
                 </a>
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+    <a href="{% url 'room_page' %}">Room List</a>
+{% endblock %}
