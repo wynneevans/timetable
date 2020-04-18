@@ -3,8 +3,12 @@ from datetime import date
 from django.forms import ModelForm, DateInput, TimeInput, TextInput
 from django.core.exceptions import ValidationError
 
-from .models import Meeting
+from .models import Meeting, Lesson
 
+class LessonForm(ModelForm):
+    class Meta:
+        model = Lesson
+        fields = '__all__'
 
 class MeetingForm(ModelForm):
     class Meta:

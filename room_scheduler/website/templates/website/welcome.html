@@ -3,22 +3,51 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Meeting Planner!</h1>
+    <h1>Timetable Optimizer</h1>
+    <h2>Lessons</h2>
     <p>
-        This is the demo application for the course
-        <em>Django: Getting Started</em>
-        on <a href="https://www.pluralsight.com">
-        Pluralsight</a>.
+        <a href="{% url 'lesson-create' %}">Create Lesson</a>
     </p>
-    <h2>Meetings</h2>
     <ul>
-        {% for meeting in meetings %}
+        {% for lesson in lessons %}
             <li>
-                <a href="{% url 'detail_page' meeting.id %}">
-                    {{ meeting.title }}
+                <a href="{% url 'lesson-detail' pk=lesson.pk %}">
+                    {{ lesson }}
                 </a>
+                <a href="{% url 'lesson-update' pk=lesson.pk %}">Update</a>
+                <a href="{% url 'lesson-delete' pk=lesson.pk %}">Delete</a>
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'room_page' %}">Room List</a>
+    <h2>Teachers</h2>
+    <p>
+        <a href="{% url 'teacher-create' %}">Create Teacher</a>
+    </p>
+    <ul>
+        {% for teacher in teachers %}
+            <li>
+                <a href="{% url 'teacher-detail' pk=teacher.pk %}">
+                    {{ teacher }}
+                </a>
+                <a href="{% url 'teacher-update' pk=teacher.pk %}">Update</a>
+                <a href="{% url 'teacher-delete' pk=teacher.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Rooms</h2>
+    <p>
+        <a href="{% url 'room-create' %}">Create Room</a>
+    </p>
+    <ul>
+        {% for room in rooms %}
+            <li>
+                <a href="{% url 'room-detail' pk=room.pk %}">
+                    {{ room }}
+                </a>
+                <a href="{% url 'room-update' pk=room.pk %}">Update</a>
+                <a href="{% url 'room-delete' pk=room.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
