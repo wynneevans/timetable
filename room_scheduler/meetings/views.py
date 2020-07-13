@@ -88,7 +88,7 @@ class LessonUpdateView(UpdateView):
 
     def form_valid(self, form):
         form.save()
-        return redirect(reverse("lesson-detail", kwargs={'pk': form.instance.pk}))
+        return redirect(reverse("welcome"))
 
 
 class LessonDeleteView(DeleteView):
@@ -128,7 +128,7 @@ class TeacherUpdateView(UpdateView):
 
     def form_valid(self, form):
         form.save()
-        return redirect(reverse("teacher-detail", kwargs={'pk': form.instance.pk}))
+        return redirect(reverse("welcome"))
 
 
 class TeacherDeleteView(DeleteView):
@@ -168,7 +168,7 @@ class RoomUpdateView(UpdateView):
 
     def form_valid(self, form):
         form.save()
-        return redirect(reverse("room-detail", kwargs={'pk': form.instance.pk}))
+        return redirect(reverse("welcome"))
 
 
 class RoomDeleteView(DeleteView):
